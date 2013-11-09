@@ -2,7 +2,7 @@
 require('nko')('yTltgBB-j8Iq2LKk');
 var app = require('express')();
 var passport = require('passport');
-var strategy = require('./lib/setup-passport');
+var strategy = require('./Scripts/lib/setup-passport');
 
 var isProduction = (process.env.NODE_ENV === 'production');
 var port = (isProduction ? 80 : 8000);

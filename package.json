@@ -11,7 +11,9 @@
     "url": "git@github.com:nko4/siecieborowice.git"
   },
   "dependencies": {
-    "nko": "*"
+    "nko": "*",
+    "passport": "~0.1.17",
+    "passport-auth0": "0.0.11"
   },
   "engines": {
     "node": "0.10.x"
