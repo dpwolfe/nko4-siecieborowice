@@ -56,15 +56,11 @@ app.get('/callback', passport.authenticate('auth0', { failureRedirect: '/500' })
     res.redirect("/");
 });
 
-app.get('/', function (req, res) {
+app.get(/^(.+)$/, function (req, res) {
     if (req.user) {
         var user = JSON.stringify(req.user);
         res.redirect("/dashboard.html");
     }
     res.sendfile("index.html");
-});
-
-app.get(/^(.+)$/, function (req, res) {
-    res.sendfile(__dirname + req.params[0]);
 });
 //# sourceMappingURL=server.js.map
