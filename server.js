@@ -1,5 +1,6 @@
 // https://github.com/nko4/website/blob/master/module/README.md#nodejs-knockout-deploy-check-ins
 require('nko')('yTltgBB-j8Iq2LKk');
+require('hogan-express');
 
 var express = require('express');
 var app = express();
