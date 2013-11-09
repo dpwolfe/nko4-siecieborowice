@@ -49,3 +49,41 @@ a {
 		color: @anchorColorHover;
 	}
 }
+
+/* ---------------
+	Main layout
+--------------- */
+
+div.main {
+    width: 820px;
+    margin: 0 auto;
+    background: url('@{imgPath}space-collage.png') no-repeat top left;
+    min-height: 700px;
+    position: relative;
+}
+
+div.airplane {
+    position: absolute;
+    left: 125px;
+    width: 256px;
+    height: 224px;
+    background: url('@{imgPath}paper-airplane.png') no-repeat;
+}
+
+div.content {
+    position: absolute;
+    margin: 125px 0 0 500px;
+    padding: 10px;
+    width: 340px;
+    background: #000;
+    border: 5px solid #fff;
+    line-height: 200%;
+
+    div.button {
+        text-align: center;
+
+        img {
+            border: 0;
+        }
+    }
+}
