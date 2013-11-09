@@ -1,6 +1,7 @@
 // https://github.com/nko4/website/blob/master/module/README.md#nodejs-knockout-deploy-check-ins
 require('nko')('yTltgBB-j8Iq2LKk');
 var app = require('express')();
+var express = require('express');
 var passport = require('passport');
 var strategy = require('./Scripts/lib/setup-passport');
 
@@ -26,8 +27,8 @@ app.get('/callback', passport.authenticate('auth0', { failureRedirect: '/500' })
 });
 
 app.configure(function () {
-    app.use(app.cookieParser());
-    app.use(app.session({ secret: 'blah blah blah' }));
+    app.use(express.cookieParser());
+    app.use(express.session({ secret: 'blah blah blah' }));
 
     app.use(passport.initialize());
     app.use(passport.session());
