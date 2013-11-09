@@ -25,7 +25,7 @@
     <Content Include="Content\images\space-collage.png" />
     <Content Include="Content\images\start-button.png" />
     <Content Include="main.html" />
-    <Content Include="unauthenticated.html" />
+    <Content Include="landing.html" />
     <Content Include="Scripts\almond-custom.js" />
     <Content Include="Scripts\durandal\activator.js" />
     <Content Include="Scripts\durandal\app.js" />
