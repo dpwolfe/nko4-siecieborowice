@@ -11,6 +11,16 @@ app.get(/^(.+)$/, (req, res) => {
     res.sendfile(__dirname + req.params[0]);
 });
 
+// Auth0 callback handler
+app.get('/callback',
+    passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }),
+    function (req, res) {
+        if (!req.user) {
+            throw new Error('user null');
+        }
+        res.redirect("/");
+    });
+
 app.listen(port, function (err) {
     if (err) { console.error(err); process.exit(-1); }
 

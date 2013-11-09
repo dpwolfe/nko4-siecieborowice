@@ -3,8 +3,8 @@ var Auth0Strategy = require('passport-auth0');
 
 var strategy = new Auth0Strategy({  
     domain:       'siecieborowice.auth0.com',
-    clientID:     '3gHv658cxWWnphHShNmjVl1npoyvySVf',
-    clientSecret: 'n0ckKOcAgTFxZjuFcQYGT_mG8bCariFZi9sLrXXHrh6ONo15C6tPqA1yfPncCX6b',
+    clientID:     'pogHSOBCzpURXMQWTVlSR4cbAsQHC0II',
+    clientSecret: 'YJbydzKotYQA_OEhxcA5DqckmNbK6wpuQWZsbD8woy8ijbz6CaxBq4zMvc90oJ3l',
     callbackURL:  '/callback'
   }, function(accessToken, refreshToken, profile, done) {
     //Some tracing info
