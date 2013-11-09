@@ -12,7 +12,7 @@ app.get(/^(.+)$/, (req, res) => {
     res.sendfile(__dirname + req.params[0]);
 });
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) =>{
     res.render('home', {
         user: JSON.stringify(req.user)
     });
