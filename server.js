@@ -1,7 +1,6 @@
 // https://github.com/nko4/website/blob/master/module/README.md#nodejs-knockout-deploy-check-ins
 require('nko')('yTltgBB-j8Iq2LKk');
 var app = require('express')();
-var express = require('express');
 var passport = require('passport');
 var strategy = require('./Scripts/lib/setup-passport');
 
@@ -19,7 +18,7 @@ app.get('/', function (req, res) {
 });
 
 // Auth0 callback handler
-app.get('/callback', passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }), function (req, res) {
+app.get('/callback', passport.authenticate('auth0', { failureRedirect: '/500' }), function (req, res) {
     if (!req.user) {
         throw new Error('user null');
     }
@@ -27,8 +26,8 @@ app.get('/callback', passport.authenticate('auth0', { failureRedirect: '/url-if-
 });
 
 app.configure(function () {
-    app.use(express.cookieParser());
-    app.use(express.session({ secret: 'blah blah blah' }));
+    app.use(app.cookieParser());
+    app.use(app.session({ secret: 'blah blah blah' }));
 
     app.use(passport.initialize());
     app.use(passport.session());
