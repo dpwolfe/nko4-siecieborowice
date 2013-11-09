@@ -24,8 +24,8 @@
     <Content Include="Content\images\site-background.jpg" />
     <Content Include="Content\images\space-collage.png" />
     <Content Include="Content\images\start-button.png" />
-    <Content Include="dashboard.html" />
-    <Content Include="index.html" />
+    <Content Include="main.html" />
+    <Content Include="unauthenticated.html" />
     <Content Include="Scripts\almond-custom.js" />
     <Content Include="Scripts\durandal\activator.js" />
     <Content Include="Scripts\durandal\app.js" />
@@ -50,18 +50,24 @@
     <Content Include="Scripts\knockout-3.0.0.debug.js" />
     <Content Include="Scripts\knockout-3.0.0.js" />
     <Content Include="Scripts\lib\setup-passport.js" />
+    <TypeScriptCompile Include="viewmodels\dashboard.ts" />
     <TypeScriptCompile Include="Scripts\typings\express\express3.d.ts" />
     <Content Include="Scripts\typings\form-data\form-data.d.ts" />
     <Content Include="Scripts\typings\request\request.d.ts" />
+    <Content Include="views\dashboard.html" />
+    <Content Include="views\game.html" />
+    <Content Include="views\shell.html" />
     <Content Include="weyland-config.js" />
     <Content Include="Scripts\r.js" />
     <Content Include="Scripts\require.js" />
     <Content Include="Scripts\text.js" />
     <Content Include="web.config" />
     <Content Include="Scripts\jquery-2.0.3.min.map" />
+    <TypeScriptCompile Include="viewmodels\game.ts" />
+    <TypeScriptCompile Include="viewmodels\shell.ts" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app.ts" />
+    <TypeScriptCompile Include="main.ts" />
     <TypeScriptCompile Include="Scripts\typings\durandal\durandal-1.x.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\durandal\durandal.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
@@ -93,7 +99,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>20027</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
@@ -120,4 +126,6 @@
     <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SSDT\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="'$(VisualStudioVersion)' == ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.Sql.UnitTesting.targets" Condition="'$(VisualStudioVersion)' != ''" />
 </Project>

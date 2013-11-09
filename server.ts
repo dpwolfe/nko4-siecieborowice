@@ -54,12 +54,13 @@ app.get('/callback',
         res.redirect("/");
     });
 
-app.get('/', (req, res) =>{
+app.get('/', (req, res) => {
     if (req.user) {
         var user = JSON.stringify(req.user);
-        res.redirect("/dashboard.html");
+        res.sendfile("main.html");
+    } else {
+        res.sendfile("landing.html");
     }
-    res.sendfile("index.html");
 });
 
 app.get(/^(.+)$/, (req, res) => {
