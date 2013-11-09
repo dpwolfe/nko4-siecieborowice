@@ -14,6 +14,10 @@
     "nko": "*",
     "passport": "~0.1.17",
     "passport-auth0": "0.0.11"
+	"auth0": "0.1.16"
+	"express": "3.4.4"
+	"hogan-express": "0.5.1"
+	"usergrid": "0.10.6"
   },
   "engines": {
     "node": "0.10.x"
