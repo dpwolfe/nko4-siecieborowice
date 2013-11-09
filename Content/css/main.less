@@ -1,0 +1,51 @@
+/* ---------------
+	Variables
+--------------- */
+
+@anchorColor: #286e6d;
+@anchorColorVisited: #286e6d;
+@anchorColorHover: #286e6d;
+@fontColor: #fff;
+@bodyBackgroundColor: #000;
+@htmlBackgroundColor: #000;
+
+@fontNameBody: sans-serif;
+
+@fontSizeEpic: 28px;
+@fontSizeHuge: 24px;
+@fontSizeBig: 20px;
+@fontSizeNav: 16px;
+@fontSizeNormal: 15px;
+@fontSizeSmall: 13px;
+@fontLineHeight: 1.5;
+
+@spacer: 10px;
+@imgPath: '../images/';
+
+/* ---------------
+	Core elements
+--------------- */
+
+html {
+	background: @htmlBackgroundColor;
+}
+
+body {
+	background: @bodyBackgroundColor url('@{imgPath}site-background.jpg') no-repeat top;
+	color: @fontColor;
+	font-family: @fontNameBody;
+	font-size: @fontSizeNormal;
+    min-height: 700px;
+}
+
+a {
+	color: @anchorColor;
+
+	&:visited {
+		color: @anchorColorVisited;
+	}
+
+	&:hover {
+		color: @anchorColorHover;
+	}
+}
