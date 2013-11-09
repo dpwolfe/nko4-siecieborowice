@@ -5,10 +5,20 @@ var express = require('express');
 var app = express();
 var passport = require('passport');
 var strategy = require('./Scripts/lib/setup-passport');
+var usergrid = require('usergrid');
 
 var isProduction = (process.env.NODE_ENV === 'production');
 var port = (isProduction ? 80 : 8000);
 
+var client = new usergrid.client({
+    orgName: 'siecieborowice',
+    appName: 'siecieborowice',
+    authType: usergrid.AUTH_CLIENT_ID,
+    clientId: 'b3U6NNxoSkkJEeOYMWX0Wk-YXw',
+    clientSecret: 'b3U6MyJy6GYHsHeiwzmUd6nKfjqy0LU',
+    logging: false, //optional - turn on logging, off by default
+    buildCurl: false //optional - turn on curl commands, off by default
+});
 
 app.configure(function () {
     app.use(express.static('public'));
