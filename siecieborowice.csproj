@@ -44,6 +44,8 @@
     <Content Include="Scripts\jquery-2.0.3.min.js" />
     <Content Include="Scripts\knockout-3.0.0.debug.js" />
     <Content Include="Scripts\knockout-3.0.0.js" />
+    <Content Include="Scripts\lib\setup-passport.js" />
+    <TypeScriptCompile Include="Scripts\typings\express\express3.d.ts" />
     <Content Include="Scripts\typings\form-data\form-data.d.ts" />
     <Content Include="Scripts\typings\request\request.d.ts" />
     <Content Include="weyland-config.js" />
