@@ -9,28 +9,14 @@ var strategy = require('./Scripts/lib/setup-passport');
 var isProduction = (process.env.NODE_ENV === 'production');
 var port = (isProduction ? 80 : 8000);
 
-// Auth0 callback handler
-app.get('/callback',
-    passport.authenticate('auth0', { failureRedirect: '/500' }),
-    (req, res) => {
-        if (!req.user) {
-            throw new Error('user null');
-        }
-        res.redirect("/");
-    });
 
-
-app.get(/^(.+)$/, (req, res) => {
-    res.sendfile(__dirname + req.params[0]);
-});
 app.configure(function () {
-
+    app.use(express.static('public'));
     app.use(express.cookieParser());
-    app.use(express.session({ secret: 'blah blah blah' }));
-
+    app.use(express.bodyParser());
+    app.use(express.session({ secret: 'keyboard cat' }));
     app.use(passport.initialize());
     app.use(passport.session());
-
     app.use(app.router);
 });
 
@@ -46,4 +32,19 @@ app.listen(port, function (err) {
     }
 
     console.log('Server running at http://127.0.0.1:' + port + '/');
+});
+
+// Auth0 callback handler
+app.get('/callback',
+    passport.authenticate('auth0', { failureRedirect: '/500' }),
+    (req, res) => {
+        if (!req.user) {
+            throw new Error('user null');
+        }
+        res.redirect("/");
+    });
+
+
+app.get(/^(.+)$/, (req, res) => {
+    res.sendfile(__dirname + req.params[0]);
 });
