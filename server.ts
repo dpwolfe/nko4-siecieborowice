@@ -1,6 +1,5 @@
 // https://github.com/nko4/website/blob/master/module/README.md#nodejs-knockout-deploy-check-ins
 require('nko')('yTltgBB-j8Iq2LKk');
-require('hogan-express');
 
 var express = require('express');
 var app = express();
@@ -55,6 +54,13 @@ app.get('/callback',
         res.redirect("/");
     });
 
+app.get('/', (req, res) =>{
+    if (req.user) {
+        var user = JSON.stringify(req.user);
+        res.redirect("/dashboard.html");
+    }
+    res.sendfile("index.html");
+});
 
 app.get(/^(.+)$/, (req, res) => {
     res.sendfile(__dirname + req.params[0]);
