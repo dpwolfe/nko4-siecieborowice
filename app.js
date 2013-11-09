@@ -1,27 +1,31 @@
-var Greeter = (function () {
-    function Greeter(element) {
-        this.element = element;
-        this.element.innerHTML += "The time is: ";
-        this.span = document.createElement('span');
-        this.element.appendChild(this.span);
-        this.span.innerText = new Date().toUTCString();
+requirejs.config({
+    paths: {
+        'text': 'Scripts/text',
+        'durandal': 'Scripts/durandal',
+        'plugins': 'Scripts/durandal/plugins',
+        'transitions': 'Scripts/durandal/transitions'
     }
-    Greeter.prototype.start = function () {
-        var _this = this;
-        this.timerToken = setInterval(function () {
-            return _this.span.innerHTML = new Date().toUTCString();
-        }, 500);
-    };
+});
 
-    Greeter.prototype.stop = function () {
-        clearTimeout(this.timerToken);
-    };
-    return Greeter;
-})();
+(define)('jquery', function () {
+    return jQuery;
+});
+(define)('knockout', ko);
 
-window.onload = function () {
-    var el = document.getElementById('content');
-    var greeter = new Greeter(el);
-    greeter.start();
-};
+define(['durandal/system', 'durandal/app', 'durandal/viewLocator'], function (system, app, viewLocator) {
+    system.debug(true);
+
+    app.title = 'Siecieborowice';
+
+    app.configurePlugins({
+        router: true,
+        dialog: true,
+        widget: true
+    });
+
+    app.start().then(function () {
+        viewLocator.useConvention();
+        app.setRoot('viewmodels/shell', 'entrance');
+    });
+});
 //# sourceMappingURL=app.js.map

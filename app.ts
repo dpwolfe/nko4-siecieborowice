@@ -1,28 +1,28 @@
-class Greeter {
-    element: HTMLElement;
-    span: HTMLElement;
-    timerToken: number;
-
-    constructor(element: HTMLElement) {
-        this.element = element;
-        this.element.innerHTML += "The time is: ";
-        this.span = document.createElement('span');
-        this.element.appendChild(this.span);
-        this.span.innerText = new Date().toUTCString();
+requirejs.config({
+    paths: {
+        'text': 'Scripts/text',
+        'durandal': 'Scripts/durandal',
+        'plugins': 'Scripts/durandal/plugins',
+        'transitions': 'Scripts/durandal/transitions'
     }
+});
 
-    start() {
-        this.timerToken = setInterval(() => this.span.innerHTML = new Date().toUTCString(), 500);
-    }
+(<any>define)('jquery', () => jQuery);
+(<any>define)('knockout', ko);
 
-    stop() {
-        clearTimeout(this.timerToken);
-    }
+define(['durandal/system', 'durandal/app', 'durandal/viewLocator'], function (system, app, viewLocator) {
+    system.debug(true);
 
-}
+    app.title = 'Siecieborowice';
 
-window.onload = () => {
-    var el = document.getElementById('content');
-    var greeter = new Greeter(el);
-    greeter.start();
-};
+    app.configurePlugins({
+        router: true,
+        dialog: true,
+        widget: true
+    });
+
+    app.start().then(() => {
+        viewLocator.useConvention();
+        app.setRoot('viewmodels/shell', 'entrance');
+    });
+});
