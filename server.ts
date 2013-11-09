@@ -1,41 +1,36 @@
 // https://github.com/nko4/website/blob/master/module/README.md#nodejs-knockout-deploy-check-ins
 require('nko')('yTltgBB-j8Iq2LKk');
-var app = require('express')();
+
 var express = require('express');
+var app = express();
 var passport = require('passport');
 var strategy = require('./Scripts/lib/setup-passport');
 
 var isProduction = (process.env.NODE_ENV === 'production');
 var port = (isProduction ? 80 : 8000);
 
-app.get(/^(.+)$/, (req, res) => {
-    res.sendfile(__dirname + req.params[0]);
-});
-
-app.get('/', (req, res) =>{
-    res.render('home', {
-        user: JSON.stringify(req.user)
-    });
-});
-
 // Auth0 callback handler
 app.get('/callback',
     passport.authenticate('auth0', { failureRedirect: '/500' }),
-    (req, res) =>{
+    (req, res) => {
         if (!req.user) {
             throw new Error('user null');
         }
         res.redirect("/");
     });
 
-app.configure(function (){
-  
+
+app.get(/^(.+)$/, (req, res) => {
+    res.sendfile(__dirname + req.params[0]);
+});
+app.configure(function () {
+
     app.use(express.cookieParser());
     app.use(express.session({ secret: 'blah blah blah' }));
-  
+
     app.use(passport.initialize());
     app.use(passport.session());
- 
+
     app.use(app.router);
 });
 
@@ -50,5 +45,5 @@ app.listen(port, function (err) {
         });
     }
 
-    console.log('Server running at http://0.0.0.0:' + port + '/');
+    console.log('Server running at http://127.0.0.1:' + port + '/');
 });
