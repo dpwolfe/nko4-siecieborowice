@@ -9,6 +9,8 @@ Fabiola Reina
 
 [Video](https://www.youtube.com/watch?v=W2moJiJvWGg) 
 
+Source provided under the MIT license.
+
 ------------------------------------------
 
 ## Quick Start
