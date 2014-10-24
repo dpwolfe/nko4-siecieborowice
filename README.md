@@ -1,3 +1,16 @@
+This is the Node Knockout 2013 entry for team Siecieborowice.
+
+Team Members:
+
+David Wolfe
+Kevin Burns
+Jordan Roher
+Fabiola Reina
+
+[Video](https://www.youtube.com/watch?v=W2moJiJvWGg) 
+
+------------------------------------------
+
 ## Quick Start
 
 ~~~sh
